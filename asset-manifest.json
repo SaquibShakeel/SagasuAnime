@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SagasuAnime/static/css/main.07a1bbda.css",
+    "main.js": "/SagasuAnime/static/js/main.c8febdca.js",
+    "index.html": "/SagasuAnime/index.html",
+    "main.07a1bbda.css.map": "/SagasuAnime/static/css/main.07a1bbda.css.map",
+    "main.c8febdca.js.map": "/SagasuAnime/static/js/main.c8febdca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07a1bbda.css",
+    "static/js/main.c8febdca.js"
+  ]
+}
