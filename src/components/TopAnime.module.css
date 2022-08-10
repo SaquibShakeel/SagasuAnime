@@ -1,0 +1,33 @@
+.topAnime{
+    margin: 0 10px 0 0;
+    padding: 0 20px;
+    width: 20%;
+    background-color: #242423;
+    float: left;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.topAnime h2{
+    color: #f5cb5c;
+    margin-bottom: 40px;
+}
+.topAnimeList{
+    color: #333533;
+    font-size: 1.2rem;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 10px 0;
+    background-color: #cfdbd5;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+.topAnimeList:hover{
+    color: #e8eddf;
+    background-color: #333533;
+}

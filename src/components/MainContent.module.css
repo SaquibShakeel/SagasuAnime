@@ -1,0 +1,10 @@
+.mainContent{
+    padding: 20px;
+}
+.animeGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}

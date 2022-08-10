@@ -1,0 +1,57 @@
+.animeDesc{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 15px;
+    background-color: #242423;
+    color: #e8eddf;
+    width: 60%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    overflow: hidden;
+    box-shadow: 0 0 20px 5px #333533;
+}
+.animeDesc figure{
+    width: 50%;
+}
+.animeDesc figure img{
+    width: 100%;
+}
+.animeContent{
+    width: 50%;
+    padding: 5rem 2rem ;
+}
+.animeContent>*{
+    margin: 0.5rem 0;
+}
+.animeContent h3{
+    text-align: center;
+}
+.engName{
+    text-align: center;
+}
+.flexData{
+    display: grid;
+    align-items: flex-start;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+}
+.trailerButton{
+    text-align: right;
+}
+.trailerBtn{
+    text-decoration: none;
+    color: #242423;
+    font-weight: 600;
+    background-color: #f5cb5c;
+    padding: 5px 10px;
+    margin: 20px;
+    border-radius: 5px;
+}
+.animeContent strong{
+    color: #f5cb5c;
+    font-weight: 600;
+}

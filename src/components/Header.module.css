@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+.header h1{
+    color: #e8eddf;
+    font-size: 3rem;
+}
+.header h1 strong{
+    color: #f5cb5c;
+
+}
+.searchAnime{
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 315px;
+}
+.searchAnime input{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    background-color: #cfdbd5;
+    color: #e8eddf;
+    font-size: 18px;
+}
+.searchAnime input[type = 'search']::-webkit-search-cancel-button{
+    display: none;
+}
+.searchAnime input:focus{
+    background-color: #333533;
+}
