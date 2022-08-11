@@ -45,6 +45,7 @@ function AnimeDesc() {
           <img src={animeData.image_url} alt="Anime_image"></img>
         </figure>
         <div className={classes.animeContent}>
+          <div className={classes.genInfo}>
           <h3>{animeData.title}</h3>
           <div className={classes.engName}>
             <strong>{animeData.title_english}</strong>
@@ -106,7 +107,8 @@ function AnimeDesc() {
               </a>
             </p>
           )}
-          <p>
+          </div>
+          <p className={classes.synopsis}>
             <strong>Synopsis:</strong>
             <br></br>
             {animeData.synopsis}

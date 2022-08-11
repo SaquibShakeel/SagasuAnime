@@ -9,8 +9,8 @@ function TopAnime(props) {
 
     return (
         <aside className={classes.topAnime}>
-          <nav>
             <h2>Top Anime</h2>
+          <nav>
             {props.topAnimeList.map((anime) => (
               <div
                 className={classes.topAnimeList}

@@ -23,3 +23,9 @@
     color: #e8eddf;
     text-align: center;
 }
+
+@media screen and (max-width: 1025px) {
+    .animeName{
+        font-size: 1.2rem;
+    }
+}

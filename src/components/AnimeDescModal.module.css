@@ -5,7 +5,7 @@
     border-radius: 15px;
     background-color: #242423;
     color: #e8eddf;
-    width: 60%;
+    width: 70%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -13,16 +13,17 @@
     z-index: 100;
     overflow: hidden;
     box-shadow: 0 0 20px 5px #333533;
+    height: 90vh;
 }
 .animeDesc figure{
-    width: 50%;
+    width: 40%;
 }
 .animeDesc figure img{
     width: 100%;
 }
 .animeContent{
-    width: 50%;
-    padding: 5rem 2rem ;
+    width: 60%;
+    padding: 5rem 2rem 2rem 2rem;
 }
 .animeContent>*{
     margin: 0.5rem 0;
@@ -54,4 +55,61 @@
 .animeContent strong{
     color: #f5cb5c;
     font-weight: 600;
+}
+.synopsis{
+    height: 40vh;
+    overflow-y: auto;
+    margin-top: 2rem;
+}
+.synopsis::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .synopsis::-webkit-scrollbar-track {
+    background: #333533;
+    border-radius: 20px;
+  }
+  
+  .synopsis::-webkit-scrollbar-thumb {
+    background-color: #f5cb5c;
+    border-radius: 20px;
+    border: 3px solid #242423;
+  }
+
+
+@media screen and (max-width: 1025px) {
+    .animeContent{
+        padding: 2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .animeDesc{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 430px) {
+    .animeDesc{
+        font-size: 0.8rem;
+        flex-direction: column;
+        position: absolute;
+        height: unset;
+        top: 5rem;
+        transform: translate(-50%, 0);
+    }
+    .animeContent figure{
+        width: 25%;
+        text-align: center;
+    }
+    .animeContent{
+        width: 100%;
+        padding: 1rem;
+    }
+    .flexData{
+        display: block;
+    }
+    .synopsis{
+        overflow-y: unset;
+        height: unset;
+    }
 }
