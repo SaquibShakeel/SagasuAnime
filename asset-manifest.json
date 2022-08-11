@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SagasuAnime/static/css/main.8c6c55e8.css",
+    "main.css": "/SagasuAnime/static/css/main.675fa091.css",
     "main.js": "/SagasuAnime/static/js/main.d9260f3e.js",
     "index.html": "/SagasuAnime/index.html",
-    "main.8c6c55e8.css.map": "/SagasuAnime/static/css/main.8c6c55e8.css.map",
+    "main.675fa091.css.map": "/SagasuAnime/static/css/main.675fa091.css.map",
     "main.d9260f3e.js.map": "/SagasuAnime/static/js/main.d9260f3e.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c6c55e8.css",
+    "static/css/main.675fa091.css",
     "static/js/main.d9260f3e.js"
   ]
 }
