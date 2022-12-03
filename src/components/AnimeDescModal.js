@@ -24,12 +24,73 @@ function AnimeDesc() {
     }
 
     const fetchAnimeData = async (queryId) => {
-        const temp = await fetch(`https://api.jikan.moe/v3/anime/${queryId}`).then(res => res.json());
-        setAnimeData(temp);
+        // const temp = await fetch(`https://api.jikan.moe/v3/anime/${queryId}`).then(res => res.json());
+        const temp = await fetch(`https://graphql.anilist.co`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            query: `
+                query ($id: Int, $page: Int, $perPage: Int) {
+                  Page(page: $page, perPage: $perPage) {
+                    pageInfo {
+                      total
+                      currentPage
+                      lastPage
+                      hasNextPage
+                      perPage
+                    }
+                    media(id: $id) {
+                      id
+                      type
+                      coverImage{
+                        extraLarge
+                      }
+                      title {
+                        romaji
+                        native
+                      }
+                      startDate {
+                        year
+                        month
+                        day
+                      }
+                      endDate {
+                        year
+                        month
+                        day
+                      }
+                      description
+                      genres
+                      averageScore
+                      popularity
+                      episodes
+                      duration
+                      isAdult
+                      siteUrl
+                      status
+                      trailer {
+                        id
+                      }
+                    }
+                  }
+                }
+              `,
+            variables: {
+              id: queryId,
+            },
+          }),
+        }).then((res) => res.json());
+        setAnimeData(temp?.data?.Page?.media?.[0]);
+        console.log(temp?.data?.Page?.media?.[0]);
+
+        // setAnimeData(temp);
       }
 
-    const startDate = formatDate(animeData?.aired?.from);
-    const endDate = formatDate(animeData?.aired?.to);
+    const startDate = animeData?.startDate?.day?.toString() + "-" + animeData?.startDate?.month?.toString() + "-" + animeData?.startDate?.year?.toString();
+    const endDate = animeData?.endDate?.day?.toString() + "-" + animeData?.endDate?.month?.toString() + "-" + animeData?.endDate?.year?.toString();
 
 
     useEffect(() =>{
@@ -42,13 +103,13 @@ function AnimeDesc() {
     return (
       <div className={classes.animeDesc}>
         <figure>
-          <img src={animeData.image_url} alt="Anime_image"></img>
+          <img src={animeData?.coverImage?.extraLarge} alt="Anime_image"></img>
         </figure>
         <div className={classes.animeContent}>
           <div className={classes.genInfo}>
-          <h3>{animeData.title}</h3>
+          <h3>{animeData?.title?.romaji}</h3>
           <div className={classes.engName}>
-            <strong>{animeData.title_english}</strong>
+            <strong>{animeData?.title?.native}</strong>
           </div>
           <div className={classes.flexData}>
             <p>
@@ -63,47 +124,47 @@ function AnimeDesc() {
           <div className={classes.flexData}>
             <p className={classes.gen}>
               <strong>Genres: </strong>
-              {animeData.genres?.map((genre) => {
-                return <span key={genre.mal_id}>{genre.name} </span>;
+              {animeData?.genres?.map((genre) => {
+                return <span key={genre}>{genre} </span>;
               })}
             </p>
-            {animeData.demographics?.length !== 0 && (
+            {/* {animeData.demographics?.length !== 0 && (
               <p className={classes.gen}>
                 <strong>Demographics: </strong>
                 {animeData.demographics?.map((data) => {
                   return <span key={data.mal_id}>{data.name} </span>;
                 })}
               </p>
-            )}
+            )} */}
           </div>
           <div className={classes.flexData}>
             <p>
               <strong>Episodes: </strong>
-              {animeData.episodes}
+              {animeData?.episodes}
             </p>
             <p>
               <strong>Status: </strong>
-              {animeData.status}
+              {animeData?.status}
             </p>
           </div>
           <div className={classes.flexData}>
             <p>
               <strong>Type: </strong>
-              {animeData.type}
+              {animeData?.type}
             </p>
             <p>
               <strong>Rating: </strong>
-              {animeData.rating}
+              {animeData?.isAdult ? "R" : "PG"}
             </p>
           </div>
           <p className={classes.gen}>
             <strong>Popularity: </strong>
-            {animeData.popularity}
+            {animeData?.popularity}
           </p>
-          {animeData.trailer_url != null && (
+          {animeData?.siteUrl !== null && (
             <p className={classes.trailerButton}>
-              <a className={classes.trailerBtn} href={animeData.trailer_url}>
-                Watch Trailer
+              <a className={classes.trailerBtn} href={animeData?.siteUrl}>
+                Site URL
               </a>
             </p>
           )}
@@ -111,7 +172,7 @@ function AnimeDesc() {
           <p className={classes.synopsis}>
             <strong>Synopsis:</strong>
             <br></br>
-            {animeData.synopsis}
+            {animeData?.description}
           </p>
         </div>
       </div>

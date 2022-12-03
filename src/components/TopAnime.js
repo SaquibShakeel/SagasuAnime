@@ -11,18 +11,18 @@ function TopAnime(props) {
         <aside className={classes.topAnime}>
             <h2>Top Anime</h2>
           <nav>
-            {props.topAnimeList.map((anime) => (
+            {props.topAnimeList?.map((anime, index) => (
               <div
                 className={classes.topAnimeList}
-                key={anime.mal_id}
+                key={anime.id}
                 onClick={() => {
-                  setAnimeId(anime.mal_id);
+                  setAnimeId(anime.id);
                   props.modalOpen(true);
                 }}
               >
-                {anime.rank}
+                {index + 1}
                 {". "}
-                {anime.title}
+                {anime.title.romaji}
               </div>
             ))}
           </nav>

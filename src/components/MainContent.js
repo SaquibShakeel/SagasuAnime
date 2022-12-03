@@ -6,11 +6,11 @@ function MainContent(props) {
     return (
         <main className={classes.mainContent}>
             <div className={classes.animeGrid} >
-                {props.animeList.map(anime => {
+                {props.animeList?.map(anime => {
                     return (
                       <AnimeCard
                         data={anime}
-                        key={anime.mal_id}
+                        key={anime?.id}
                         modalOpen={props.modalOpen}
                       />
                     );
